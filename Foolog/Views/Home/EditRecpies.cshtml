@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "EditRecpies";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<link href="~/Contents/style.css" rel="stylesheet" />
+<div class="container text-center pt-5 mt-5">
+    <form action="../../Home/EditRecpies/@ViewBag.recpiesdetail.Rows[0]["FoodId"]" method="post" enctype="multipart/form-data">
+        <div id="admin-img">
+            @if (ViewBag.recpiesdetail != null)
+            {
+                foreach (var item in ViewBag.recpiesdetail.Rows)
+                {
+                    <input type="file" name="FoodUrl" id="file" class="inputfile" />
+                    <label>Choose file</label>
+                    <input type="text" name="FoodTitle" placeholder="Food Title" value="@ViewBag.recpiesdetail.Rows[0]["FoodTitle"].ToString()" /><br /><br />
+                    <input type="text" name="FoodText" placeholder="Food Text" value="@ViewBag.recpiesdetail.Rows[0]["FoodText"].ToString()" /><br /><br />
+                    <input type="date" name="FoodText" placeholder="Date" value="@ViewBag.recpiesdetail.Rows[0]["FoodDate"].ToString()" /><br /><br />
+                    <input type="submit" value="Add" />
+                }
+            }
+        </div>
+    </form>
+</div>
+
